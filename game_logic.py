@@ -23,6 +23,15 @@ def display_game_state(mistakes, secret_word, guessed_letters):
     print("\n")
 
 
+def get_letter():
+    while True:
+        letter = input("Guess a letter: ")
+        if letter.isalpha() and len(letter) == 1:
+            return letter
+        print("Wrong input. Please enter only one letter and no other characters.")
+        continue
+
+
 def play_game():
     secret_word = get_random_word()
     guessed_letters = []
@@ -32,7 +41,7 @@ def play_game():
 
     while mistakes < len(STAGES) - 1 and len(guessed_letters) != len(secret_word):
         display_game_state(mistakes, secret_word, guessed_letters)
-        guess = input("Guess a letter: ").lower()
+        guess = get_letter()
         print("You guessed:", guess)
         if guess in secret_word:
             guessed_letters.append(guess)
