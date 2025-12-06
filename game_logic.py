@@ -2,7 +2,14 @@ import random
 from ascii_art import STAGES
 
 # List of secret words
-WORDS = ["python", "git", "github", "snowman", "meltdown"]
+WORDS = ["snowman", "meltdown", "santa", "elf", "snow", "tree", "gift",
+    "star", "bell", "holly", "angel", "noel", "sock", "reindeer",
+    "sleigh", "cookie", "stocking", "mistletoe", "fireplace",
+    "gingerbread", "icicle", "candy cane", "ornament", "nutcracker",
+    "garland", "snowflake", "caroling", "cranberries", "frostbite",
+    "december", "chestnuts", "winter wonderland", "north pole",
+    "peppermint", "tinsel", "bethlehem", "christmastide",
+    "mulled wine", "evergreen", "snowdrift", "candlelight", "sleighbells"]
 
 def get_random_word():
     """Selects a random word from the list."""
