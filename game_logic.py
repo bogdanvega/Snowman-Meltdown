@@ -54,6 +54,11 @@ def play_game():
         display_game_state(mistakes, secret_word, guessed_letters)
         guess = get_letter()
         print("You guessed:", guess)
+
+        if guess in guessed_letters:
+            print("You already guessed that letter!")
+            continue
+
         if guess in secret_word:
             guessed_letters.append(guess)
         else:
