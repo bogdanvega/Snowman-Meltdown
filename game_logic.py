@@ -17,6 +17,7 @@ def get_random_word():
 
 
 def display_game_state(mistakes, secret_word, guessed_letters):
+    """ Displays the snowman stage and the display word """
     # Display the snowman stage for the current number of mistakes.
     print(STAGES[mistakes])
     # Build a display version of the secret word.
@@ -31,6 +32,9 @@ def display_game_state(mistakes, secret_word, guessed_letters):
 
 
 def get_letter():
+    """ Gets a letter from the user.
+    Validates the input as well.
+    """
     while True:
         letter = input("Guess a letter: ")
         if letter.isalpha() and len(letter) == 1:
@@ -40,11 +44,12 @@ def get_letter():
 
 
 def play_game():
+    """ The main game function. """
     secret_word = get_random_word()
     guessed_letters = []
     mistakes = 0
+
     print("Welcome to Snowman Meltdown!")
-    print("Secret word selected: " + secret_word)  # for testing, later remove this line
 
     while mistakes < len(STAGES) - 1 and len(guessed_letters) != len(secret_word):
         display_game_state(mistakes, secret_word, guessed_letters)
