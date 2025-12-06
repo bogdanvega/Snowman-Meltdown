@@ -5,11 +5,11 @@ from ascii_art import STAGES
 WORDS = ["snowman", "meltdown", "santa", "elf", "snow", "tree", "gift",
     "star", "bell", "holly", "angel", "noel", "sock", "reindeer",
     "sleigh", "cookie", "stocking", "mistletoe", "fireplace",
-    "gingerbread", "icicle", "candy cane", "ornament", "nutcracker",
+    "gingerbread", "icicle", "ornament", "nutcracker",
     "garland", "snowflake", "caroling", "cranberries", "frostbite",
-    "december", "chestnuts", "winter wonderland", "north pole",
-    "peppermint", "tinsel", "bethlehem", "christmastide",
-    "mulled wine", "evergreen", "snowdrift", "candlelight", "sleighbells"]
+    "december", "chestnuts", "peppermint", "tinsel", "bethlehem",
+    "christmastide", "evergreen", "snowdrift", "candlelight", "sleighbells"]
+
 
 def get_random_word():
     """Selects a random word from the list."""
@@ -50,8 +50,7 @@ def play_game():
     mistakes = 0
 
     print("Welcome to Snowman Meltdown!")
-
-    while mistakes < len(STAGES) - 1 and len(guessed_letters) != len(secret_word):
+    while mistakes < len(STAGES) - 1 and len(guessed_letters) != len(set(secret_word)):
         display_game_state(mistakes, secret_word, guessed_letters)
         guess = get_letter()
         print("You guessed:", guess)
@@ -63,5 +62,5 @@ def play_game():
     if mistakes == len(STAGES) - 1:
         print(f"Game Over! The word was: {secret_word}")
         print(STAGES[-1])
-    elif len(guessed_letters) == len(secret_word):
+    elif len(guessed_letters) == len(set(secret_word)):
         print("Congratulations, you saved the snowman!")
