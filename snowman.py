@@ -8,3 +8,5 @@ if __name__ == "__main__":
         if replay == "yes":
             continue
         break
+
+    print("Test new branch!")
